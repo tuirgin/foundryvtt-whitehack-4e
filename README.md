@@ -1,5 +1,5 @@
 # foundryvtt-whitehack-4e
-Updated to foundry 10.291
+Updated to foundry 11.299
 Added the Clever class
 Added Knacks
 DEX is AGI, CON is TGH
