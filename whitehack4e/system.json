@@ -36,7 +36,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hitPoints",
   "initiative": "1d6 + @attributes.dex.mod",
-  "url": "https://github.com/neilbenson/foundryvtt-whitehack-3e",
+  "url": "https://github.com/atm09st/foundryvtt-whitehack-4e",
   "download": "https://github.com/atm09st/foundryvtt-whitehack-4e",
     "authors": [
     {
