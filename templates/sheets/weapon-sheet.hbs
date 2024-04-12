@@ -1,0 +1,50 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{img}}" data-edit="img" title="{{name}}" height="64" width="64" />
+    <div>
+      <h1><input name="name" type="text" value="{{name}}" placeholder="Name" />
+      </h1>
+    </div>
+  </header>
+  <div class="sheet-content">
+    <table>
+      <tr class="flex-center">
+        <th>{{localize "wh3e.item.damage"}}</th>
+        <th>{{localize "wh3e.item.weight"}}</th>
+        <th>{{localize "wh3e.item.range"}}</th>
+        <th>{{localize "wh3e.item.rateOfFire"}}</th>
+        <th>{{localize "wh3e.item.cost"}}</th>
+      </tr>
+      <tr class="flex-center">
+        <td>
+          {{> selectOptions field="system.damage" selected=system.damage options=config.damageDice}}
+        </td>
+        <td>
+          {{> selectOptions field="system.weight" selected=system.weight options=config.weaponWeightTypes}}
+        </td>
+        <td>
+          <input name="system.range" type="text" class="center-text" value={{system.range}}
+                 data-dtype="Number" />
+        </td>
+        <td>
+          {{> selectOptions field="system.rateOfFire" selected=system.rateOfFire options=config.roFShotsPerRound}}
+        </td>
+        <td>
+          <input name="system.cost" type="text" class="center-text input-small" value={{system.cost}}
+                 data-dtype="Number" />
+          {{> selectOptions field="system.costCoinType" selected=system.costCoinType options=config.coinTypes}}
+        </td>
+      </tr>
+    </table>
+    <div class="full-width-field">
+      <label for="system.special">{{localize "wh3e.item.special"}}</label>
+      <input id="system.special" name="system.special" type="text" value="{{system.special}}"
+             data-dtype="String" />
+    </div>
+    <div class="full-height-field">
+      <label for="system.description">{{localize "wh3e.item.description"}}</label>
+      {{!-- {{editor system.description target="system.description" button=true owner=owner editable=editable}} --}}
+      {{editor enrichedDescription target="system.description" button=true owner=owner editable=editable}}
+    </div>
+  </div>
+</form>

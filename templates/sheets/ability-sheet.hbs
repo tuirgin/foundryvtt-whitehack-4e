@@ -1,0 +1,19 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{img}}" data-edit="img" title="{{name}}" height="64" width="64" />
+    <div>
+      <h1><input name="name" type="text" value="{{name}}" placeholder="Name" class="item-name" /></h1>
+    </div>
+  </header>
+  <div class="sheet-content">
+    <div class="full-width-field ability-type-select">
+      <label for="system.type">{{localize "wh3e.item.type"}}</label>
+      {{> selectOptions field="system.type" selected=system.type options=config.abilityTypes}}
+    </div>
+    <div class="full-height-field">
+      <label for="system.description" style="font-weight: bold;">{{localize "wh3e.item.description"}}</label>
+      {{!-- {{editor system.description target="system.description" button=true owner=owner editable=editable}} --}}
+      {{editor enrichedDescription target="system.description" button=true owner=owner editable=editable}}
+    </div>
+  </div>
+</form>

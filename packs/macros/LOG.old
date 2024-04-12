@@ -1,0 +1,8 @@
+2024/04/12-12:16:53.531 31e8 Recovering log #45
+2024/04/12-12:16:53.537 31e8 Delete type=0 #45
+2024/04/12-12:16:53.537 31e8 Delete type=3 #44
+2024/04/12-18:57:54.066 5c90 Level-0 table #49: started
+2024/04/12-18:57:54.067 5c90 Level-0 table #49: 0 bytes OK
+2024/04/12-18:57:54.068 5c90 Delete type=0 #47
+2024/04/12-18:57:54.075 5c90 Manual compaction at level-0 from '!folders!8iWbzkkRkVMNqvoT' @ 72057594037927935 : 1 .. '!macros!raildi80bJVTocy7' @ 0 : 0; will stop at (end)
+2024/04/12-18:57:54.075 5c90 Manual compaction at level-1 from '!folders!8iWbzkkRkVMNqvoT' @ 72057594037927935 : 1 .. '!macros!raildi80bJVTocy7' @ 0 : 0; will stop at (end)
