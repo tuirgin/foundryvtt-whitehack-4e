@@ -49,18 +49,20 @@
       "theWise": "The Wise",
       "theBrave": "The Brave",
       "theFortunate": "The Fortunate",
-	  "theClever": "The Clever"
+      "theClever": "The Clever"
     },
     "abilityType": {
+      "ability": "Ability",
+      "affiliation": "Affiliation",
       "attunement": "Attunement",
       "combatOption": "Combat Option",
+      "implant": "Implant",
+      "knacks": "Knacks",
       "miracle": "Miracle",
       "quirk": "Quirk",
-	  "knacks": "Knacks",
       "retainer": "Retainer",
       "species": "Species",
-      "vocation": "Vocation",
-      "affiliation": "Affiliation"
+      "vocation": "Vocation"
     },
     "category": {
       "attributes": "Attributes",
@@ -138,7 +140,8 @@
       "quantity": "Quantity"
     },
     "coinType": {
-      "gp": "crowns",
+      "cr": "CR",
+      "gp": "GP",
       "sp": "SP",
       "cp": "CP"
     },
@@ -168,12 +171,13 @@
       "Threed6plus4": "3d6+4"
     },
     "weightTypes": {
-      "regular": "Regular",
-      "heavy": "Heavy",
-      "minor": "Minor",
-      "small": "Small",
-      "negligible": "Negligible",
-      "noEncumbrance": "---"
+      "regular": "Regular (1)",
+      "heavy": "Heavy (2)",
+      "minor": "Minor (1/2)",
+      "small": "(1/5)",
+      "tenth": "(1/10)",
+      "negligible": "No size (1/100)",
+      "noEncumbrance": "Weightless (0)"
     },
     "burdenCategory": {
       "normal": "Normal burden",

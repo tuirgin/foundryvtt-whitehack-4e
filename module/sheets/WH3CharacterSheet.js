@@ -82,6 +82,17 @@ export default class WH3CharacterSheet extends ActorSheet {
       html
         .find(".clear-groups")
         .click(this._groupsDeleteFromAttributeHandler.bind(this));
+
+      // Sort items by name
+      html.find(".weapon-name.sortable").click((ev) => {
+        this.actor.sortItems("Weapon", "name");
+      });
+      html.find(".armour-name.sortable").click((ev) => {
+        this.actor.sortItems("Armour", "name");
+      });
+      html.find(".gear-name.sortable").click((ev) => {
+        this.actor.sortItems("Gear", "name");
+      });
     }
 
     // Owner only listeners

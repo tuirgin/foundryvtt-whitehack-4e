@@ -7,21 +7,49 @@
   "styles": ["css/wh3e.css"],
   "packs": [
     {
-      "name": "armour",
-      "label": "Armour",
-      "path": "/packs/armour.db",
-      "type": "Item"
+      "name": "actor",
+      "label": "Actors",
+      "path": "packs/actor",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
-      "name": "gear",
-      "label": "Gear",
-      "path": "/packs/gear.db",
-      "type": "Item"
+      "name": "item",
+      "label": "Items",
+      "path": "packs/item",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
-      "name": "macros",
+      "name": "journal",
+      "label": "Journals",
+      "path": "packs/journal",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "macro",
       "label": "Macros",
-      "path": "/packs/macros.db",
+      "path": "packs/macro",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "macro-referee",
+      "label": "Macros (Referee)",
+      "path": "packs/macro-referee",
       "type": "Macro",
       "ownership": {
         "PLAYER": "NONE",
@@ -29,10 +57,24 @@
       }
     },
     {
-      "name": "weapons",
-      "label": "Weapons",
-      "path": "/packs/weapons.db",
-      "type": "Item"
+      "name": "roll-table",
+      "label": "Roll Tables",
+      "path": "packs/roll-table",
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "roll-table-referee",
+      "label": "Roll Tables (Referee)",
+      "path": "packs/roll-table-referee",
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "languages": [
@@ -48,15 +90,15 @@
   "initiative": "1d6 + @attributes.dex.mod",
   "url": "https://github.com/atm09st/foundryvtt-whitehack-4e",
   "download": "https://github.com/atm09st/foundryvtt-whitehack-4e",
-    "authors": [
+  "authors": [
     {
       "name": "atm09st",
       "url": "https://github.com/atm09st/foundryvtt-whitehack-4e",
       "discord": "s0urcem4ge#2521",
       "flags": {}
     }
-	],
-    "compatibility": {
+  ],
+  "compatibility": {
     "minimum": "10.288",
     "verified": "11.306"
   }
