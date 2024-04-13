@@ -96,7 +96,7 @@
           "mod": 0
         }
       },
-      "damage": "d6",
+      "damage": "1d6",
       "special": "",
       "xp": 0
     }
@@ -114,7 +114,7 @@
     },
     "Weapon": {
       "templates": ["equipmentBase"],
-      "damage": "d6",
+      "damage": "1d6",
       "range": 0,
       "rateOfFire": "",
       "special": ""

@@ -40,9 +40,9 @@
       </div>
       <div class="grid grid-5col">
         <div class="flex-group-center">
-          <label for="system.damage" class="rollable damage-roll">{{localize "wh3e.item.damage"}}</label>
+          <label for="system.damage" class="damage-roll">{{localize "wh3e.item.damage"}}</label>
           <div class="flexrow flex-center">
-            {{> selectOptions field="system.damage" selected=system.damage options=config.damageDice}}
+          <input name="system.damage" type="text" class="center-text" value={{system.damage}} data-dtype="String" placeholder="1d6" />
           </div>
         </div>
         <div class="flex-group-center">

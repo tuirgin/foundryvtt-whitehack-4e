@@ -292,6 +292,15 @@ export default class WH3CharacterSheet extends ActorSheet {
   }
 
   /**
+   * Get item (weapon) and send to dialog for attack roll
+   * @param {Object} event
+   */
+  _damageRollHandler(event) {
+    const item = this.getItem(event);
+    attackRollDialog(item);
+  }
+
+  /**
    * Determine if saving throw or attribute roll and send to dialog for roll
    * @param {Object} event
    */

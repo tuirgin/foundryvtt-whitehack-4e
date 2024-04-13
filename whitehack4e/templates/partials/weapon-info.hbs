@@ -24,7 +24,8 @@
             <span>{{weapon.name}}</span>
           </td>
           <td class="weapon-damage">
-            <span>{{getTextFromKey "wh3e.damageDice" weapon.system.damage}}</span>
+            {{!-- <span>{{getTextFromKey "wh3e.damageDice" weapon.system.damage}}</span> --}}
+            <span>{{weapon.system.damage}}</span>
           </td>
           <td>
             <span>{{getTextFromKey "wh3e.weightTypes" weapon.system.weight}}</span>

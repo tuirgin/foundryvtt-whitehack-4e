@@ -230,11 +230,10 @@ export const attackRoll = async (
 
   if (toHitOutcome === c.SUCCESS) {
     // Hit - Damage Roll
-    let rollFormula =
-      "(" +
-      game.i18n.localize("wh3e.damageDice." + weapon.system.damage) +
-      ")" +
-      " + @strDmgMod + @damageMod";
+    let rollFormula = `${weapon.system.damage} + @strDmgMod[STR] + @damageMod[±]`;
+    // "(" +
+    // game.i18n.localize("wh3e.damageDice." + weapon.system.damage) +
+    // ")" +
     let damageRoll = await new Roll(rollFormula, rollData).evaluate({
       async: true,
     });

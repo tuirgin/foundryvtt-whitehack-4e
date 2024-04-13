@@ -50,17 +50,30 @@ export const rollModDialog = (actor, rollAttribute, rollTitle) => {
         roll: {
           icon: '<i class="fas fa-dice-d20"></i>',
           label: null,
-          callback: (html) => taskRollDialogCallback(html, actor, rollAttribute),
+          callback: (html) =>
+            taskRollDialogCallback(html, actor, rollAttribute),
         },
         doublePositiveRoll: {
           icon: '<i class="fas fa-dice-d20"></i><i class="fas fa-plus"></i>',
           label: null,
-          callback: (html) => taskRollDialogCallback(html, actor, rollAttribute, c.DOUBLEPOSITIVE),
+          callback: (html) =>
+            taskRollDialogCallback(
+              html,
+              actor,
+              rollAttribute,
+              c.DOUBLEPOSITIVE
+            ),
         },
         doubleNegativeRoll: {
           icon: '<i class="fas fa-dice-d20"></i><i class="fas fa-minus"></i>',
           label: null,
-          callback: (html) => taskRollDialogCallback(html, actor, rollAttribute, c.DOUBLENEGATIVE),
+          callback: (html) =>
+            taskRollDialogCallback(
+              html,
+              actor,
+              rollAttribute,
+              c.DOUBLENEGATIVE
+            ),
         },
       },
     },
@@ -101,12 +114,14 @@ export const attackRollDialog = (item) => {
         doublePositiveRoll: {
           icon: '<i class="fas fa-dice-d20"></i><i class="fas fa-plus"></i>',
           label: null,
-          callback: (html) => attackRollDialogCallback(html, item, c.DOUBLEPOSITIVE),
+          callback: (html) =>
+            attackRollDialogCallback(html, item, c.DOUBLEPOSITIVE),
         },
         doubleNegativeRoll: {
           icon: '<i class="fas fa-dice-d20"></i><i class="fas fa-minus"></i>',
           label: null,
-          callback: (html) => attackRollDialogCallback(html, item, c.DOUBLENEGATIVE),
+          callback: (html) =>
+            attackRollDialogCallback(html, item, c.DOUBLENEGATIVE),
         },
       },
     },
@@ -122,7 +137,12 @@ export const attackRollDialog = (item) => {
  * @param {number=0} damageMod
  * @param {string} rollType
  */
-export const attackRoll = async (weapon, toHitMod = 0, damageMod = 0, rollType = c.ROLL) => {
+export const attackRoll = async (
+  weapon,
+  toHitMod = 0,
+  damageMod = 0,
+  rollType = c.ROLL
+) => {
   let strMod = 0;
   let strDmgMod = 0;
   const actor = weapon.actor;
@@ -161,11 +181,16 @@ export const attackRoll = async (weapon, toHitMod = 0, damageMod = 0, rollType =
   const rollTemplate = "systems/whitehack4e/templates/chat/attack-roll.hbs";
 
   // To Hit Roll
-  const toHitRoll = await new Roll(getDiceToRoll(rollType), rollData).evaluate({ async: true });
+  const toHitRoll = await new Roll(getDiceToRoll(rollType), rollData).evaluate({
+    async: true,
+  });
   toHitRoll.toMessage(messageData, { rollMode: null, create: false });
 
   const diceOne = toHitRoll.terms[0].results[0].result;
-  const diceTwo = toHitRoll.terms[0].results.length > 1 ? toHitRoll.terms[0].results[1].result : null;
+  const diceTwo =
+    toHitRoll.terms[0].results.length > 1
+      ? toHitRoll.terms[0].results[1].result
+      : null;
   const toHitResult = getRollResult(rollType, toHitTarget, diceOne, diceTwo);
 
   if (game.dice3d) {
@@ -173,9 +198,25 @@ export const attackRoll = async (weapon, toHitMod = 0, damageMod = 0, rollType =
   }
 
   const toHitOutcome = getRollOutcome(toHitResult, toHitTarget, targetAC);
-  const toHitHeader = getToHitResultHeader(toHitOutcome, toHitResult, weapon.name, toHitTarget, targetAC, targetName);
-  const toHitResultCategory = getResultCategory(toHitTarget, toHitResult, rollType, diceOne, diceTwo, toHitOutcome);
-  const toHitResultCategoryWith = toHitResultCategory ? `${toHitResultCategory}` : "";
+  const toHitHeader = getToHitResultHeader(
+    toHitOutcome,
+    toHitResult,
+    weapon.name,
+    toHitTarget,
+    targetAC,
+    targetName
+  );
+  const toHitResultCategory = getResultCategory(
+    toHitTarget,
+    toHitResult,
+    rollType,
+    diceOne,
+    diceTwo,
+    toHitOutcome
+  );
+  const toHitResultCategoryWith = toHitResultCategory
+    ? `${toHitResultCategory}`
+    : "";
 
   cardData = {
     ...cardData,
@@ -189,16 +230,20 @@ export const attackRoll = async (weapon, toHitMod = 0, damageMod = 0, rollType =
 
   if (toHitOutcome === c.SUCCESS) {
     // Hit - Damage Roll
-    let rollFormula =
-      "(" + game.i18n.localize("wh3e.damageDice." + weapon.system.damage) + ")" + " + @strDmgMod + @damageMod";
-    let damageRoll = await new Roll(rollFormula, rollData).evaluate({ async: true });
+    let rollFormula = `${weapon.system.damage} +  @strDmgMod[STR] + @damageMod[±]`;
+    let damageRoll = await new Roll(rollFormula, rollData).evaluate({
+      async: true,
+    });
     damageRoll.toMessage(messageData, { rollMode: null, create: false });
 
     cardData.dmgFormula = damageRoll._formula;
 
     cardData.damageTemplate = await damageRoll.render();
     cardData.damageResult = damageRoll.total >= 1 ? damageRoll.total : 1;
-    cardData.damageHeader = getDamageResultHeader(weapon.name, cardData.damageResult);
+    cardData.damageHeader = getDamageResultHeader(
+      weapon.name,
+      cardData.damageResult
+    );
 
     // Different output if not Fixed Damage of 1: shows dice formula and dice results
     if (damageRoll.dice.length > 0) {
@@ -256,15 +301,26 @@ const taskRoll = async (actor, rollMod, rollFor, rollType) => {
   }
 
   // Task Roll
-  const roll = await new Roll(getDiceToRoll(rollType), rollData).evaluate({ async: true });
+  const roll = await new Roll(getDiceToRoll(rollType), rollData).evaluate({
+    async: true,
+  });
   roll.toMessage(messageData, { rollMode: null, create: false });
 
   // Get results data
   const diceOne = roll.terms[0].results[0].result;
-  const diceTwo = roll.terms[0].results.length > 1 ? roll.terms[0].results[1].result : null;
+  const diceTwo =
+    roll.terms[0].results.length > 1 ? roll.terms[0].results[1].result : null;
   const rollResult = getRollResult(rollType, rollTarget, diceOne, diceTwo);
   const rollOutcome = getRollOutcome(rollResult, rollTarget);
-  const resultHeader = getRollResultHeader(rollFor, rollTarget, rollResult, rollType, diceOne, diceTwo, rollOutcome);
+  const resultHeader = getRollResultHeader(
+    rollFor,
+    rollTarget,
+    rollResult,
+    rollType,
+    diceOne,
+    diceTwo,
+    rollOutcome
+  );
 
   cardData = {
     ...cardData,
@@ -293,8 +349,15 @@ const taskRoll = async (actor, rollMod, rollFor, rollType) => {
  * @param {string} rollAttribute
  * @param {string} rollType
  */
-const taskRollDialogCallback = (html, actor, rollAttribute, rollType = c.ROLL) => {
-  const rollMod = Number.parseInt(html.find('.mod-prompt.dialog [name="roll_modifier"]')[0].value);
+const taskRollDialogCallback = (
+  html,
+  actor,
+  rollAttribute,
+  rollType = c.ROLL
+) => {
+  const rollMod = Number.parseInt(
+    html.find('.mod-prompt.dialog [name="roll_modifier"]')[0].value
+  );
   if (isNaN(rollMod)) {
     ui.notifications.error(game.i18n.localize("wh3e.errors.modsNotNumbers"));
   } else {
@@ -309,8 +372,12 @@ const taskRollDialogCallback = (html, actor, rollAttribute, rollType = c.ROLL) =
  * @param {string} rollType
  */
 const attackRollDialogCallback = (html, item = null, rollType = c.ROLL) => {
-  const toHitMod = Number.parseInt(html.find('.mod-prompt.dialog [name="attack_modifier"]')[0].value);
-  const damageMod = Number.parseInt(html.find('.mod-prompt.dialog [name="damage_modifier"]')[0].value);
+  const toHitMod = Number.parseInt(
+    html.find('.mod-prompt.dialog [name="attack_modifier"]')[0].value
+  );
+  const damageMod = Number.parseInt(
+    html.find('.mod-prompt.dialog [name="damage_modifier"]')[0].value
+  );
   if (isNaN(toHitMod) || isNaN(damageMod)) {
     ui.notifications.error(game.i18n.localize("wh3e.errors.modsNotNumbers"));
   } else {
@@ -344,19 +411,38 @@ const getDiceToRoll = (rollType) => {
  * @param {number} diceTwo
  * @returns {string}
  */
-const getRollResultHeader = (rollFor, rollTarget, rollResult, rollType, diceOne, diceTwo, rollOutcome) => {
+const getRollResultHeader = (
+  rollFor,
+  rollTarget,
+  rollResult,
+  rollType,
+  diceOne,
+  diceTwo,
+  rollOutcome
+) => {
   let resultHeader = c.EMPTYSTRING;
   if (rollFor === c.SAVINGTHROW) {
     resultHeader = game.i18n.localize("wh3e.dice.savingThrowVsTarget");
   } else {
-    resultHeader = rollFor.toUpperCase() + " " + game.i18n.localize("wh3e.dice.taskRollVsTarget");
+    resultHeader =
+      rollFor.toUpperCase() +
+      " " +
+      game.i18n.localize("wh3e.dice.taskRollVsTarget");
   }
   return (
     resultHeader +
     " " +
     rollTarget +
     " - " +
-    getResultCategory(rollTarget, rollResult, rollType, diceOne, diceTwo, rollOutcome, rollFor)
+    getResultCategory(
+      rollTarget,
+      rollResult,
+      rollType,
+      diceOne,
+      diceTwo,
+      rollOutcome,
+      rollFor
+    )
   );
 };
 
@@ -367,8 +453,17 @@ const getRollResultHeader = (rollFor, rollTarget, rollResult, rollType, diceOne,
  * @param {number} toHitTarget
  * @returns {string}
  */
-const getToHitResultHeader = (toHitOutcome, toHitResult, weapon, toHitTarget, targetAC, targetName) => {
-  const attackVsTarget = `(${game.i18n.localize("wh3e.actor.attackValue")} ${toHitTarget})`;
+const getToHitResultHeader = (
+  toHitOutcome,
+  toHitResult,
+  weapon,
+  toHitTarget,
+  targetAC,
+  targetName
+) => {
+  const attackVsTarget = `(${game.i18n.localize(
+    "wh3e.actor.attackValue"
+  )} ${toHitTarget})`;
   const hitsAC = game.i18n.localize("wh3e.combat.hitsAC");
   const hits = game.i18n.localize("wh3e.combat.hits");
   let acHit = toHitResult - 1;
@@ -385,12 +480,18 @@ const getToHitResultHeader = (toHitOutcome, toHitResult, weapon, toHitTarget, ta
   } else {
     if (targetName) {
       if (toHitResult > targetAC) {
-        resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize("wh3e.combat.misses")} ${targetName}`;
+        resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize(
+          "wh3e.combat.misses"
+        )} ${targetName}`;
       } else {
-        resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize("wh3e.combat.blockedByArmour")} ${targetName}`;
+        resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize(
+          "wh3e.combat.blockedByArmour"
+        )} ${targetName}`;
       }
     } else {
-      resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize("wh3e.combat.misses")}`;
+      resultHeader = `${weapon} ${attackVsTarget} ${game.i18n.localize(
+        "wh3e.combat.misses"
+      )}`;
     }
   }
   return resultHeader;
@@ -417,17 +518,32 @@ const getDamageResultHeader = (weapon, damageResult) => {
  * @param {number} diceTwo
  * @returns {string}
  */
-const getResultCategory = (rollTarget, rollResult, rollType, diceOne, diceTwo, diceOutcome, rollFor = null) => {
+const getResultCategory = (
+  rollTarget,
+  rollResult,
+  rollType,
+  diceOne,
+  diceTwo,
+  diceOutcome,
+  rollFor = null
+) => {
   let category = [];
   if (diceOutcome === c.SUCCESS) {
-    let extremeRollQuality = game.i18n.localize("wh3e.dice.withQuality") + " " + rollResult.toString();
-    if (diceOne === diceTwo && rollType === c.DOUBLEPOSITIVE && diceOutcome === c.SUCCESS) {
+    let extremeRollQuality =
+      game.i18n.localize("wh3e.dice.withQuality") + " " + rollResult.toString();
+    if (
+      diceOne === diceTwo &&
+      rollType === c.DOUBLEPOSITIVE &&
+      diceOutcome === c.SUCCESS
+    ) {
       category.push(game.i18n.localize("wh3e.dice.successfulPositivePair"));
     }
     // If extreme roll will crit on 19, so target becomes 19
     if (rollTarget >= 20) {
       extremeRollQuality =
-        game.i18n.localize("wh3e.dice.withQuality") + " " + (rollResult + rollTarget - 20).toString();
+        game.i18n.localize("wh3e.dice.withQuality") +
+        " " +
+        (rollResult + rollTarget - 20).toString();
       rollTarget = 19;
     }
     if (rollResult === rollTarget) {
@@ -441,7 +557,11 @@ const getResultCategory = (rollTarget, rollResult, rollType, diceOne, diceTwo, d
       category.push(extremeRollQuality);
     }
   } else {
-    if (diceOne === diceTwo && rollType === c.DOUBLENEGATIVE && diceOutcome === c.FAIL) {
+    if (
+      diceOne === diceTwo &&
+      rollType === c.DOUBLENEGATIVE &&
+      diceOutcome === c.FAIL
+    ) {
       category.push(game.i18n.localize("wh3e.dice.unsuccessfulNegativePair"));
     }
     if (rollResult === 20 && rollTarget < 20) {
@@ -489,12 +609,18 @@ const getRollResult = (rollType, rollTarget, diceOne, diceTwo) => {
   // If double negative keep just the highest
   if (rollType === c.DOUBLEPOSITIVE) {
     rollResult = highestResult;
-    if ((lowestResult <= rollTarget && highestResult > rollTarget) || highestResult === 20) {
+    if (
+      (lowestResult <= rollTarget && highestResult > rollTarget) ||
+      highestResult === 20
+    ) {
       rollResult = lowestResult;
     }
   } else if (rollType === c.DOUBLENEGATIVE) {
     rollResult = lowestResult;
-    if ((lowestResult <= rollTarget && highestResult > rollTarget) || highestResult === 20) {
+    if (
+      (lowestResult <= rollTarget && highestResult > rollTarget) ||
+      highestResult === 20
+    ) {
       rollResult = highestResult;
     }
   }
