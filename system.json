@@ -47,32 +47,12 @@
       }
     },
     {
-      "name": "macro-referee",
-      "label": "Macros (Referee)",
-      "path": "packs/macro-referee",
-      "type": "Macro",
-      "ownership": {
-        "PLAYER": "NONE",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
       "name": "roll-table",
       "label": "Roll Tables",
       "path": "packs/roll-table",
       "type": "RollTable",
       "ownership": {
         "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "roll-table-referee",
-      "label": "Roll Tables (Referee)",
-      "path": "packs/roll-table-referee",
-      "type": "RollTable",
-      "ownership": {
-        "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
       }
     }
