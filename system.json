@@ -2,7 +2,7 @@
   "name": "whitehack4e",
   "title": "Whitehack 4th Edition",
   "description": "A system for playing Whitehack 4th Edition",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "esmodules": ["wh3e.js"],
   "styles": ["css/wh3e.css"],
   "packs": [
@@ -42,7 +42,17 @@
       "path": "packs/macro",
       "type": "Macro",
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "provision",
+      "label": "Provision",
+      "path": "packs/provision",
+      "type": "Adventure",
+      "ownership": {
+        "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
       }
     },
@@ -72,9 +82,17 @@
   "download": "https://github.com/atm09st/foundryvtt-whitehack-4e",
   "authors": [
     {
+      "name": "Tuirgin",
+      "discord": "tuirgin",
+      "flags": {}
+    },
+    {
       "name": "atm09st",
-      "url": "https://github.com/atm09st/foundryvtt-whitehack-4e",
       "discord": "s0urcem4ge#2521",
+      "flags": {}
+    },
+    {
+      "name": "Neil Benson (@OldScouserRPing)",
       "flags": {}
     }
   ],
