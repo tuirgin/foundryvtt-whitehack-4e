@@ -1,0 +1,114 @@
+{
+  "folder": "vhmtlPnbhs8tVEgt",
+  "name": "07 HD",
+  "type": "Monster",
+  "_id": "zPgVHVSVIsSUzGBw",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "hitPoints": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "movement": 30,
+    "notes": "<ul data-pm-slice=\"2 2 []\">\n<li><strong>Good Attributes/Morale:</strong>&nbsp;<strong>AV</strong>;&nbsp;Poor Attributes/Morale: <strong>SV</strong> (or <strong>HD</strong>)</li>\n<li><strong>Attacks</strong>&mdash;<strong>5 HD:</strong> 2 attacks; <strong>10 HD:</strong> 3 attacks; <strong>15 HD:</strong> 4 attacks<br>\n<ul style=\"padding-top: 0; margin-top: 0;\">\n<li><strong>Last attack</strong> during that round is made at [[/r 1d20]]{AV 10}, and she must <strong>forsake her move</strong></li>\n<li>If the <strong>d10</strong> is used, it can only be for <strong>one of the attacks</strong> in a round.</li>\n</ul>\n</li>\n</ul>",
+    "combat": {
+      "armourClass": "0",
+      "attackValue": 17,
+      "hitDice": {
+        "base": 7,
+        "modifier": "0"
+      }
+    },
+    "savingThrow": 12,
+    "attributes": {
+      "dex": {
+        "mod": 0
+      }
+    },
+    "damage": "d6",
+    "special": "",
+    "xp": 1400
+  },
+  "prototypeToken": {
+    "name": "07 HD",
+    "displayName": 20,
+    "actorLink": false,
+    "appendNumber": true,
+    "prependAdjective": false,
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "width": 1,
+    "height": 1,
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -2,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hitPoints"
+    },
+    "bar2": {
+      "attribute": "combat.armourClass"
+    },
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "flags": {},
+    "randomImg": false
+  },
+  "items": [],
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "kHDgurX1WEPIJDaV": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "whitehack4e",
+    "systemVersion": "1.4.1",
+    "coreVersion": "11.315",
+    "createdTime": 1712858469982,
+    "modifiedTime": 1712976259428,
+    "lastModifiedBy": "kHDgurX1WEPIJDaV"
+  },
+  "_key": "!actors!zPgVHVSVIsSUzGBw"
+}
