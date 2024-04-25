@@ -2,7 +2,7 @@
   "wh3e": {
     "attribute": {
       "str": "STR",
-      "wis": "WIS",
+      "wis": "WIL",
       "int": "INT",
       "dex": "AGI",
       "con": "TGH",
@@ -30,7 +30,7 @@
       "movement": "MV",
       "encumbrance": "Encumbrance",
       "corruption": "CL",
-      "hitDice": "Hit Dice",
+      "hitDice": "Harm Dice",
       "xp": "Experience Points",
       "nextLevel": "Next level",
       "monster": {
@@ -99,7 +99,7 @@
       "cancel": "Cancel",
       "clear": "Clear",
       "activeGroupsRequired": "There must be active groups in Abilities to add here",
-      "savingThrow": "Saving Throw",
+      "savingThrow": "Save",
       "taskRoll": "task roll"
     },
     "combat": {
@@ -118,7 +118,7 @@
     },
     "modifiers": {
       "rollMod": "Modifier",
-      "toHitMod": "To Hit Mod",
+      "toHitMod": "Attack Mod",
       "damageMod": "Damage Mod"
     },
     "item": {
@@ -140,10 +140,7 @@
       "quantity": "Quantity"
     },
     "coinType": {
-      "cr": "CR",
-      "gp": "GP",
-      "sp": "SP",
-      "cp": "CP"
+      "cr": "CR"
     },
     "damageDice": {
       "oneDmg": "1",
@@ -173,18 +170,18 @@
     "weightTypes": {
       "regular": "Regular (1)",
       "heavy": "Heavy (2)",
-      "minor": "Minor (1/2)",
-      "small": "(1/5)",
-      "tenth": "(1/10)",
-      "negligible": "No size (1/100)",
-      "noEncumbrance": "Weightless (0)"
+      "minor": "Minor (0.5)",
+      "small": "• 5-per (0.2)",
+      "tenth": "• 10-per (0.1)",
+      "negligible": "No size (0.01)",
+      "noEncumbrance": "• Non-Encumbering (0)"
     },
     "burdenCategory": {
-      "normal": "Normal burden",
-      "heavy": "Heavy burden",
-      "severe": "Severe burden",
-      "massive": "Massive burden",
-      "tooMuch": "Can't move!"
+      "normal": "Normal Burden",
+      "heavy": "Heavy (MV -5)",
+      "severe": "Severe (MV -10)",
+      "massive": "Massive (MV -15)",
+      "tooMuch": "Can't move! (MV 0)"
     },
     "roFShotsPerRound": {
       "none": "None",

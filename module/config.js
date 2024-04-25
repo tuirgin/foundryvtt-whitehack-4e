@@ -70,9 +70,6 @@ export const wh3e = {
     vocation: "wh3e.abilityType.vocation",
   },
   coinTypes: {
-    gp: "wh3e.coinType.gp",
-    sp: "wh3e.coinType.sp",
-    cp: "wh3e.coinType.cp",
     cr: "wh3e.coinType.cr",
   },
   armourClasses: {

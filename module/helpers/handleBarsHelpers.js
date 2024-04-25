@@ -51,21 +51,21 @@ export const registerHelpers = async () => {
     ) {
       return game.i18n.localize("wh3e.burdenCategory.normal");
     } else if (
-      equipped <= equippedLimit + 1 &&
-      stored <= storedLimit + 1 &&
-      totalCarried <= totalLimit + 1
+      equipped <= equippedLimit + 2 &&
+      stored <= storedLimit + 2 &&
+      totalCarried <= totalLimit + 2
     ) {
       return game.i18n.localize("wh3e.burdenCategory.heavy");
     } else if (
-      equipped <= equippedLimit + 3 &&
-      stored <= storedLimit + 3 &&
-      totalCarried <= totalLimit + 3
+      equipped <= equippedLimit + 4 &&
+      stored <= storedLimit + 4 &&
+      totalCarried <= totalLimit + 4
     ) {
       return game.i18n.localize("wh3e.burdenCategory.severe");
     } else if (
-      equipped <= equippedLimit + 5 &&
-      stored <= storedLimit + 5 &&
-      totalCarried <= totalLimit + 5
+      equipped <= equippedLimit + 6 &&
+      stored <= storedLimit + 6 &&
+      totalCarried <= totalLimit + 6
     ) {
       return game.i18n.localize("wh3e.burdenCategory.massive");
     } else {

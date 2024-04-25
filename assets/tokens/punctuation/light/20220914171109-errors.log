@@ -1,0 +1,2 @@
+
+(inkscape:1700330): Gtk-WARNING **: 17:12:24.074: Theme parsing error: gtk.css:73:46: The style property GtkScrolledWindow:scrollbars-within-bevel is deprecated and shouldn't be used anymore. It will be removed in a future version

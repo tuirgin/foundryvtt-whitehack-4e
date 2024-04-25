@@ -107,7 +107,7 @@
       "equipmentBase": {
         "description": "",
         "cost": 0,
-        "costCoinType": "GP",
+        "costCoinType": "CR",
         "weight": "regular",
         "equippedStatus": "stored"
       }
