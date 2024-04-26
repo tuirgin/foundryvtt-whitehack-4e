@@ -78,8 +78,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hitPoints",
   "initiative": "1d6 + @attributes.dex.mod",
-  "url": "https://github.com/atm09st/foundryvtt-whitehack-4e",
-  "download": "https://github.com/atm09st/foundryvtt-whitehack-4e",
+  "url": "https://github.com/tuirgin/foundryvtt-whitehack-4e",
+  "download": "https://github.com/tuirgin/foundryvtt-whitehack-4e",
   "authors": [
     {
       "name": "Tuirgin",
@@ -97,7 +97,7 @@
     }
   ],
   "compatibility": {
-    "minimum": "10.288",
-    "verified": "11.306"
+    "minimum": "11",
+    "verified": "11"
   }
 }
