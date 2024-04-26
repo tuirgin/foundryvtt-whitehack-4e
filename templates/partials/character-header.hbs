@@ -21,6 +21,8 @@
       <div class="flex-group-center grid-row-span-4-3">
         <label for="system.basics.class">{{localize "wh3e.actor.class"}}</label>
         <div class="flexrow flex-center">
+          {{!-- TODO: Open up classes. Currently they're tied to Attribute modifiers --}}
+          {{!-- <input type="text" name="system.basics.class" value="{{system.basics.class}}" data-dtype="String" title="{{localize 'wh3e.actor.class'}}" /> --}}
           {{> selectOptions field="system.basics.class" selected=system.basics.class options=config.classes}}
         </div>
       </div>
