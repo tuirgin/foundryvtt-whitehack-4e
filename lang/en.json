@@ -168,13 +168,13 @@
       "Threed6plus4": "3d6+4"
     },
     "weightTypes": {
-      "regular": "Regular (1)",
-      "heavy": "Heavy (2)",
-      "minor": "Minor (0.5)",
-      "small": "• 5-per (0.2)",
-      "tenth": "• 10-per (0.1)",
-      "negligible": "No size (0.01)",
-      "noEncumbrance": "• Non-Encumbering (0)"
+      "regular": "1",
+      "heavy": "2",
+      "minor": "0.5",
+      "small": "0.2",
+      "tenth": "0.1",
+      "negligible": "0.01",
+      "noEncumbrance": "0"
     },
     "burdenCategory": {
       "normal": "Normal Burden",
